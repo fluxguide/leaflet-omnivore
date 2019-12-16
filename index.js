@@ -108,7 +108,9 @@ function gpxLoad(url, options, customLayer) {
     xhr(url, onload);
     function onload(err, response) {
         var error;
-        if (err) return layer.fire('error', { error: err });
+        if (err && !err.responseText) return layer.fire('error', { error: err });
+        // check if error has actual GPX inside and return it as successful response
+        if (err && err.responseText) response = err; 
         function avoidReady() {
             error = true;
         }
@@ -119,6 +121,8 @@ function gpxLoad(url, options, customLayer) {
     }
     return layer;
 }
+
+
 
 /**
  * Load a [KML](https://developers.google.com/kml/documentation/) document into a layer and return the layer.
