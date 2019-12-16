@@ -1,5 +1,14 @@
 # leaflet-omnivore
 
+
+---
+
+### Modifications by fluxguide
+
+Handling error with offline gpx files. When error.responseText has GPX, serve it as respone.
+
+---
+
 ![](https://farm8.staticflickr.com/7373/12376158164_e335b4e61d_b.jpg)
 
 [Leaflet](http://leafletjs.com/) supports the [GeoJSON](http://geojson.org/) format
